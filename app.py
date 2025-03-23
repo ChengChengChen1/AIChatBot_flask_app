@@ -63,5 +63,6 @@ def summarize():
     return jsonify({"summary": summary})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # 获取 Heroku 指定的端口，没有时使用5000
+    app.run(host="0.0.0.0", port=port)
 
